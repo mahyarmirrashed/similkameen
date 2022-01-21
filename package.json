@@ -7,6 +7,11 @@
   "author": "Mahyar Mirrashed <mah.mirr@gmail.com>",
   "license": "MIT",
   "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
+    "prettier": "^2.5.1"
+  },
   "dependencies": {
     "concurrently": "^7.0.0",
     "cors": "^2.8.5",
@@ -18,8 +23,5 @@
     "format": "prettier --write .",
     "server": "nodemon index",
     "start": "concurrently \"yarn run server\" \"yarn run client\""
-  },
-  "devDependencies": {
-    "prettier": "^2.5.1"
   }
 }
