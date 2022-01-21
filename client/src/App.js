@@ -95,7 +95,7 @@ const App = () => {
             {inputGrid.map((nums, X) => (
               <div className = 'row' key={X}>
                 {nums.map((nums, Y) => (
-                  <div className={inputGrid[X][Y]===0?'cell':'cell toggled'} key={X*100+Y}/>
+                  <div className={inputGrid[X][Y] === 0 ?'cell':'cell toggled'} key={X*100+Y}/>
                 ))}
               </div>
             ))}
@@ -107,7 +107,7 @@ const App = () => {
             {randomGrid.map((nums, X) => (
               <div className = 'row' key={X}>
                 {nums.map((nums, Y) => (
-                  <div className={randomGrid[X][Y]===0?'cell':'cell toggled'} key={X*100+Y}/>
+                  <div className={randomGrid[X][Y] === 0 ?'cell':'cell toggled'} key={X*100+Y}/>
                 ))}
               </div>
             ))}
@@ -119,7 +119,7 @@ const App = () => {
             {outputGrid.map((nums, X) => (
               <div className = 'row' key={X}>
                 {nums.map((nums, Y) => (
-                  <div className={outputGrid[X][Y]===0?'cell':'cell toggled'} key={X*100+Y}/>
+                  <div className={outputGrid[X][Y] === 0 ?'cell':'cell toggled'} key={X*100+Y}/>
                 ))}
               </div>
             ))}
