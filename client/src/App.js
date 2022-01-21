@@ -17,11 +17,12 @@ const APICall = (endpoint, params) => {
 
 const createBoxes = (str) => {
   let arr = [];
-  let len = str.length;
+  let vals = str.split(' ');
+  let len = vals.length;
   for (let i = 0; i < MAX_HEIGHT; i++) {
     arr[i] = new Array(len);
     for (let k = 0; k < len; k++) {
-      if (i >= MAX_HEIGHT - parseInt(str[k])) {
+      if (i >= MAX_HEIGHT - parseInt(vals[k])) {
         arr[i][k] = 1;
       } else {
         arr[i][k] = 0;
@@ -65,8 +66,8 @@ const App = () => {
     // });
 
     inputNumbers = createBoxes(input);
-    randomNumbers = inputNumbers;
-    outputNumbers = inputNumbers;
+    //randomNumbers = inputNumbers
+    //outputNumbers = inputNumbers
     setInputGrid(inputNumbers);
     setRandomGrid(randomNumbers);
     setOutputGrid(outputNumbers);
@@ -95,36 +96,27 @@ const App = () => {
         <div className="centerpanel">
           <div className="box_container" id="input_box_container">
             {inputGrid.map((nums, X) => (
-              <div className="row" key={X}>
+              <div className = 'row' key={X}>
                 {nums.map((nums, Y) => (
-                  <div
-                    className={inputGrid[X][Y] === 0 ? 'cell' : 'cell toggled'}
-                    key={100*X + Y}
-                  />
+                  <div className={inputGrid[X][Y] === 0 ?'cell':'cell toggled'} key={X*100+Y}/>
                 ))}
               </div>
             ))}
           </div>
           <div className="box_container" id="randomized_box_container">
             {randomGrid.map((nums, X) => (
-              <div className="row" key={X}>
+              <div className = 'row' key={X}>
                 {nums.map((nums, Y) => (
-                  <div
-                    className={randomGrid[X][Y] === 0 ? 'cell' : 'cell toggled'}
-                    key={100*X + Y}
-                  />
+                  <div className={randomGrid[X][Y] === 0 ?'cell':'cell toggled'} key={X*100+Y}/>
                 ))}
               </div>
             ))}
           </div>
           <div className="box_container" id="input_box_container">
             {outputGrid.map((nums, X) => (
-              <div className="row" key={X}>
+              <div className = 'row' key={X}>
                 {nums.map((nums, Y) => (
-                  <div
-                    className={outputGrid[X][Y] === 0 ? 'cell' : 'cell toggled'}
-                    key={100*X + Y}
-                  />
+                  <div className={outputGrid[X][Y] === 0 ?'cell':'cell toggled'} key={X*100+Y}/>
                 ))}
               </div>
             ))}
