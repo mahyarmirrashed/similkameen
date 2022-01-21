@@ -37,6 +37,11 @@ body {
     background-color: #FFF;
     border: 1px solid rgb(0, 0, 0);
   }
+  .input_tile {
+    width: 50%;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 0px 8px;
+}
   #game_container {
       margin: 10px;
       padding: 15px;
