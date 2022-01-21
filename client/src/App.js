@@ -18,19 +18,18 @@ const APICall = (endpoint, params) => {
 const createBoxes = (str) => {
   let arr = [];
   let len = str.length;
-  for(let i = 0; i < MAX_HEIGHT; i++){
-    arr[i] = new Array(len)
-    for(let k = 0; k < len; k++){
-      if (i >= MAX_HEIGHT-parseInt(str[k])) {
+  for (let i = 0; i < MAX_HEIGHT; i++) {
+    arr[i] = new Array(len);
+    for (let k = 0; k < len; k++) {
+      if (i >= MAX_HEIGHT - parseInt(str[k])) {
         arr[i][k] = 1;
-      }
-      else{
+      } else {
         arr[i][k] = 0;
       }
     }
   }
   return arr;
-}
+};
 
 let inputNumbers = [];
 let randomNumbers = [];
@@ -53,18 +52,26 @@ const App = () => {
     // output = APICall('localhost:4000/execute', {
     //   input: input,
     //   process: process,
+    //   height: MAX_HEIGHT
     // });
     // random = APICall('localhost:4000/randomize', {
     //   input: input,
+    //   height: MAX_HEIGHT
     // });
     // APICall('localhost:4000/investigate', {
     //   input: random,
     //   output: output,
+    //   height: MAX_HEIGHT
     // });
 
     inputNumbers = createBoxes(input);
+<<<<<<< HEAD
     //randomNumbers = inputNumbers
     //outputNumbers = inputNumbers
+=======
+    randomNumbers = inputNumbers;
+    outputNumbers = inputNumbers;
+>>>>>>> ec623670c679461ae6f16e90e56466d2ed8b0ad8
     setInputGrid(inputNumbers);
     setRandomGrid(randomNumbers);
     setOutputGrid(outputNumbers);
@@ -91,7 +98,7 @@ const App = () => {
           </span>
         </div>
         <div className="centerpanel">
-          <div className='box_container' id='input_box_container'>
+          <div className="box_container" id="input_box_container">
             {inputGrid.map((nums, X) => (
               <div className = 'row' key={X}>
                 {nums.map((nums, Y) => (
@@ -100,7 +107,7 @@ const App = () => {
               </div>
             ))}
           </div>
-          <div className='box_container' id='randomized_box_container'>
+          <div className="box_container" id="randomized_box_container">
             {randomGrid.map((nums, X) => (
               <div className = 'row' key={X}>
                 {nums.map((nums, Y) => (
@@ -109,7 +116,7 @@ const App = () => {
               </div>
             ))}
           </div>
-          <div className='box_container' id='input_box_container'>
+          <div className="box_container" id="input_box_container">
             {outputGrid.map((nums, X) => (
               <div className = 'row' key={X}>
                 {nums.map((nums, Y) => (
