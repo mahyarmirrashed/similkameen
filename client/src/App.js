@@ -53,13 +53,16 @@ const App = () => {
     // output = APICall('localhost:4000/execute', {
     //   input: input,
     //   process: process,
+    //   height: MAX_HEIGHT
     // });
     // random = APICall('localhost:4000/randomize', {
     //   input: input,
+    //   height: MAX_HEIGHT
     // });
     // APICall('localhost:4000/investigate', {
     //   input: random,
     //   output: output,
+    //   height: MAX_HEIGHT
     // });
 
     inputNumbers = createBoxes(input);
