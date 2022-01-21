@@ -95,8 +95,8 @@ const App = () => {
         <div className="centerpanel">
           <div className="box_container" id="input_box_container">
             {inputGrid.map((nums, X) => (
-              <div className="row" key={X}>
-                {nums.map((Y) => (
+              <div className="row" key={Math.random()}>
+                {nums.map((nums, Y) => (
                   <div
                     className={inputGrid[X][Y] === 0 ? 'cell' : 'cell toggled'}
                     key={Math.random()}
@@ -107,8 +107,8 @@ const App = () => {
           </div>
           <div className="box_container" id="randomized_box_container">
             {randomGrid.map((nums, X) => (
-              <div className="row" key={X}>
-                {nums.map((Y) => (
+              <div className="row" key={Math.random()}>
+                {nums.map((nums, Y) => (
                   <div
                     className={randomGrid[X][Y] === 0 ? 'cell' : 'cell toggled'}
                     key={Math.random()}
@@ -119,8 +119,8 @@ const App = () => {
           </div>
           <div className="box_container" id="input_box_container">
             {outputGrid.map((nums, X) => (
-              <div className="row" key={X}>
-                {nums.map((Y) => (
+              <div className="row" key={Math.random()}>
+                {nums.map((nums, Y) => (
                   <div
                     className={outputGrid[X][Y] === 0 ? 'cell' : 'cell toggled'}
                     key={Math.random()}
