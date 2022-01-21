@@ -1,11 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 import './style.css';
+import {useState} from 'react'
 
 const App = () => {
-  const onSubmit = (e) => {
+
+  const [input, setInput] = useState('');
+  const [process, setProcess] = useState('');
+
+  const onClick = (e) => {
     e.preventDefault();
-    console.log("submitted")
+    console.log(input, process)
+    setInput('')
+    setProcess('')
   }
   return (
     <div className="App">
@@ -26,7 +33,7 @@ const App = () => {
         </div>
       </div>
       <div className='content_container'>
-        <div className='input_tile'>
+        <div className='input_tile' >
           <div className='center status_msg'>
             <h3>Output Configuration</h3>
           </div>
@@ -35,10 +42,10 @@ const App = () => {
           </span>
           <div className='center'>
             <label htmlFor="input_config">Input Configuration:</label>
-            <input id="input_config"/>
+            <input type ='text' id="input_config" value = {input} onChange ={(e) => setInput(e.target.value)}/>
             <label for="process_config">Process Configuration:</label>
-            <input id="process_config"/>
-            <input id="send_input_and_process" type="submit" value="Go"/>
+            <input id="process_config" value = {process} onChange = {(e) => setProcess(e.target.value)}/>
+            <button id="send_input_and_process" value="Go" onClick={onClick}/>
             
           </div>
         </div>
