@@ -65,13 +65,8 @@ const App = () => {
     // });
 
     inputNumbers = createBoxes(input);
-<<<<<<< HEAD
     //randomNumbers = inputNumbers
     //outputNumbers = inputNumbers
-=======
-    randomNumbers = inputNumbers;
-    outputNumbers = inputNumbers;
->>>>>>> ec623670c679461ae6f16e90e56466d2ed8b0ad8
     setInputGrid(inputNumbers);
     setRandomGrid(randomNumbers);
     setOutputGrid(outputNumbers);
