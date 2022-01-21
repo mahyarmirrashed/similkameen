@@ -27,6 +27,11 @@
     "server": "nodemon index",
     "start": "concurrently \"yarn run server\" \"yarn run client\""
   },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
   "lint-staged": {
     "**/*.{js,jsx,css,html}": [
       "yarn format"
