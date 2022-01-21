@@ -5,5 +5,3 @@ The Similkameen team decided to implement the entire application using NodeJS. S
 ## Operation
 
 Lorem ipsum dolor sit amet.
-
-
