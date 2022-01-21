@@ -83,5 +83,5 @@ function randomize(input){
           sum-=1
       }
   }
-  return list.map((String).join('')
+  return list.map((String).join(''))
 }
