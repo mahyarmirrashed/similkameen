@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import './style.css';
 import { useState } from 'react';
@@ -37,14 +36,14 @@ const App = () => {
     let random = '';
     let output = '';
 
-    output = APICall('localhost:4000/execute', {
+    output = APICall('http://localhost:4000/execute', {
       input: input,
       process: process,
     });
-    random = APICall('localhost:4000/randomize', {
+    random = APICall('http://localhost:4000/randomize', {
       input: input,
     });
-    APICall('localhost:4000/investigate', {
+    APICall('http://localhost:4000/investigate', {
       input: random,
       output: output,
     });
