@@ -2,7 +2,7 @@ import './App.css';
 import './style.css';
 import { useState } from 'react';
 const ax = require('axios').default;
-
+const MAX_HEIGHT = 4;
 const APICall = (endpoint, params) => {
   ax.post(endpoint, params)
     .then((response) => {
@@ -14,6 +14,23 @@ const APICall = (endpoint, params) => {
 
   return {};
 };
+
+const createBoxes = (str) => {
+  let arr = [];
+  let len = str.length;
+  for(let i = 0; i < MAX_HEIGHT; i++){
+    arr[i] = new Array(len)
+    for(let k = 0; k < len; k++){
+      if (i >= MAX_HEIGHT-parseInt(str[k])) {
+        arr[i][k] = 1;
+      }
+      else{
+        arr[i][k] = 0;
+      }
+    }
+  }
+  return arr;
+}
 
 let inputNumbers = [];
 let randomNumbers = [];
@@ -33,24 +50,19 @@ const App = () => {
     let random = '';
     let output = '';
 
-    output = APICall('localhost:4000/execute', {
-      input: input,
-      process: process,
-    });
-    random = APICall('localhost:4000/randomize', {
-      input: input,
-    });
-    APICall('localhost:4000/investigate', {
-      input: random,
-      output: output,
-    });
+    // output = APICall('localhost:4000/execute', {
+    //   input: input,
+    //   process: process,
+    // });
+    // random = APICall('localhost:4000/randomize', {
+    //   input: input,
+    // });
+    // APICall('localhost:4000/investigate', {
+    //   input: random,
+    //   output: output,
+    // });
 
-    for(let i = 0; i < 4; i++){
-      inputNumbers[i] = new Array(7)
-      for(let k = 0; k < 7; k++){
-        inputNumbers[i][k] = 1
-      }
-    }
+    inputNumbers = createBoxes(input);
     randomNumbers = inputNumbers
     outputNumbers = inputNumbers
     setInputGrid(inputNumbers);
@@ -83,7 +95,7 @@ const App = () => {
             {inputGrid.map((nums, X) => (
               <div className = 'row' key={X}>
                 {nums.map(Y => (
-                  <div className={inputGrid[X][Y]===0?'cell':'cell toggled'} key={100*X+Y}/>
+                  <div className={inputGrid[X][Y]===0?'cell':'cell toggled'} key={Math.random()}/>
                 ))}
               </div>
             ))}
@@ -92,7 +104,7 @@ const App = () => {
             {randomGrid.map((nums, X) => (
               <div className = 'row' key={X}>
                 {nums.map(Y => (
-                  <div className={randomGrid[X][Y]===0?'cell':'cell toggled'} key={100*X+Y}/>
+                  <div className={randomGrid[X][Y]===0?'cell':'cell toggled'} key={Math.random()}/>
                 ))}
               </div>
             ))}
@@ -101,7 +113,7 @@ const App = () => {
             {outputGrid.map((nums, X) => (
               <div className = 'row' key={X}>
                 {nums.map(Y => (
-                  <div className={outputGrid[X][Y]===0?'cell':'cell toggled'} key={100*X+Y}/>
+                  <div className={outputGrid[X][Y]===0?'cell':'cell toggled'} key={Math.random()}/>
                 ))}
               </div>
             ))}
