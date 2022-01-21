@@ -10,6 +10,8 @@
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^12.2.2",
     "prettier": "^2.5.1"
   },
   "dependencies": {
@@ -21,7 +23,13 @@
   "scripts": {
     "client": "yarn --cwd client run start",
     "format": "prettier --write .",
+    "prepare": "husky install",
     "server": "nodemon index",
     "start": "concurrently \"yarn run server\" \"yarn run client\""
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,css,html}": [
+      "yarn format"
+    ]
   }
 }
