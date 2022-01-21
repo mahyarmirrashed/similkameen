@@ -37,14 +37,14 @@ const App = () => {
     let random = '';
     let output = '';
 
-    output = APICall('/execute', {
+    output = APICall('localhost:4000/execute', {
       input: input,
       process: process,
     });
-    random = APICall('/randomize', {
+    random = APICall('localhost:4000/randomize', {
       input: input,
     });
-    APICall('/investigate', {
+    APICall('localhost:4000/investigate', {
       input: random,
       output: output,
     });
