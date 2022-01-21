@@ -2,15 +2,48 @@ import logo from './logo.svg';
 import './App.css';
 import './style.css';
 import {useState} from 'react'
+const ax = require('axios').default;
+
+const APICall = (endpoint, params) => {
+
+  ax.post(endpoint, params)
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+  return {}
+
+}
 
 const App = () => {
 
   const [input, setInput] = useState('');
   const [process, setProcess] = useState('');
+  
 
   const onClick = (e) => {
     e.preventDefault();
     console.log(input, process)
+
+    let random = ''
+    let output = ''
+
+    output = APICall('/execute', {
+      input: input,
+      process: process
+    })
+    random = APICall('/randomize', {
+      input: input,
+    })
+    APICall('/investigate', {
+      input: random,
+      output: output
+    })
+
+
     setInput('')
     setProcess('')
   }
@@ -45,7 +78,7 @@ const App = () => {
             <input type ='text' id="input_config" value = {input} onChange ={(e) => setInput(e.target.value)}/>
             <label for="process_config">Process Configuration:</label>
             <input id="process_config" value = {process} onChange = {(e) => setProcess(e.target.value)}/>
-            <button id="send_input_and_process" value="Go" onClick={onClick}/>
+            <button id="send_input_and_process" onClick={onClick}>Go</button>
             
           </div>
         </div>
