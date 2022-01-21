@@ -82,18 +82,15 @@ const App = () => {
       </div>
       <div className="content_container">
         <div className="side">
-          <h3>Rules</h3>
+          <h3>Welcome</h3>
           <span>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum."
+            This tool was created by team Similkameen for the 2022 Western Engineering Conference. Read more about the diagrams in the about section and enter data in the user entry section to see the tool in action.
           </span>
         </div>
         <div className="centerpanel">
+          <div className='center status_msg'>
+            <strong>Initial configuration</strong>
+          </div>
           <div className="box_container" id="input_box_container">
             {inputGrid.map((nums, X) => (
               <div className = 'row' key={X}>
@@ -103,6 +100,9 @@ const App = () => {
               </div>
             ))}
           </div>
+          <div className='center status_msg'>
+            <strong>Randomized configuration</strong>
+          </div>
           <div className="box_container" id="randomized_box_container">
             {randomGrid.map((nums, X) => (
               <div className = 'row' key={X}>
@@ -111,6 +111,9 @@ const App = () => {
                 ))}
               </div>
             ))}
+          </div>
+          <div className='center status_msg'>
+            <strong>Final configuration</strong>
           </div>
           <div className="box_container" id="input_box_container">
             {outputGrid.map((nums, X) => (
@@ -123,24 +126,24 @@ const App = () => {
           </div>
         </div>
         <div className="side">
-          <h3>Rules</h3>
+          <h3>About</h3>
           <span>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum."
+            When a user enters a valid input state and process configuration, Three diagrams will be shown:
           </span>
+          <br></br>
+          <ul>
+            <li>The first diagram is the inital configuration that the user inputs. </li>
+            <li>The second diagram is a randomized configuration of the initial configuration.</li>
+            <li>The third diagram is the final configuration, along with the steps needed to turn the randomized configuration into the final one.</li>
+          </ul>
         </div>
       </div>
       <div className="content_container">
         <div className="input_tile">
           <div className="center status_msg">
-            <h3>Output Configuration</h3>
+            <h3>User Entry</h3>
           </div>
-          <span className="center status_msg">To</span>
+          <span className="center status_msg">To use the crane tool, input the initial configuration and process configuration as numbers separated by a space.</span>
           <div className="center">
             <label htmlFor="input_config">Input Configuration:</label>
             <input
