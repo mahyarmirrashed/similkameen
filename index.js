@@ -27,8 +27,8 @@ app.post('/execute', (req, res) => {
     Number.isInteger(req.body.height) &&
     req.body.height > 0
   ) {
-    let input = req.body.input.split(' ').map(Number);
-    let process = req.body.process.split(' ').map(Number);
+    let input = req.body.input.trim().split(' ').map(Number);
+    let process = req.body.process.trim().split(' ').map(Number);
 
     let pos = 0;
     let carrying = false;
@@ -71,8 +71,8 @@ app.post('/investigate', (req, res) => {
     Number.isInteger(req.body.height) &&
     req.body.height > 0
   ) {
-    let input = req.body.input.split(' ').map(Number);
-    let output = req.body.output.split(' ').map(Number);
+    let input = req.body.input.trim().split(' ').map(Number);
+    let output = req.body.output.trim().split(' ').map(Number);
 
     let process = '';
     let i = 0;
@@ -137,7 +137,7 @@ app.post('/randomize', (req, res) => {
     Number.isInteger(req.body.height) &&
     req.body.height > 0
   ) {
-    let input = req.body.input.split(' ').map(Number);
+    let input = req.body.input.trim().split(' ').map(Number);
     let tot = input.reduce((acc, curr) => acc + curr);
     let out = new Array(input.length).fill(0);
 
