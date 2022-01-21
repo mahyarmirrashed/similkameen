@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 const port = process.env.PORT || 4000;
 
 app.post('/execute', (req, res) => {
-  console.log('POST request received.');
+  res.send(execute(req.body.input, req.body.process));
 });
 
 app.post('/investigate', (req, res) => {
@@ -62,7 +62,7 @@ function execute(input, processes){
       }
   }
 
-  return inputs
+  return inputs.map(String).join('')
 }
 
 function randomize(input){
@@ -83,5 +83,5 @@ function randomize(input){
           sum-=1
       }
   }
-  return list
+  return list.map((String).join('')
 }
