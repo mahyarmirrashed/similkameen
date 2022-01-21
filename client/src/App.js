@@ -7,10 +7,10 @@ const ax = require('axios').default;
 const APICall = (endpoint, params) => {
 
   ax.post(endpoint, params)
-  .then(function (response) {
+  .then(response => {
     console.log(response);
   })
-  .catch(function (error) {
+  .catch(error => {
     console.log(error);
   });
 
