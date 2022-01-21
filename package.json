@@ -17,5 +17,8 @@
     "client": "yarn --cwd client run start",
     "server": "nodemon index",
     "start": "concurrently \"yarn run server\" \"yarn run client\""
+  },
+  "devDependencies": {
+    "prettier": "^2.5.1"
   }
 }
