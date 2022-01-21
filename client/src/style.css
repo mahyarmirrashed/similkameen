@@ -49,10 +49,10 @@ h3 {
 .cell {
   width: 25px;
   height: 25px;
-  border: 1px solid black;
+  border: 1px solid white;
   padding: 5px 5px 5px 5px;
 
-  background-color: lightgray;
+  background-color: white;
 
   font-size: 16px;
   text-align: center;
@@ -60,7 +60,7 @@ h3 {
   cursor: pointer;
 }
 .cell.toggled {
-  background-color: greenyellow;
+  background-color: teal;
 }
 .status_msg {
   margin-bottom: 10px;

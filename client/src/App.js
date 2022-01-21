@@ -63,8 +63,8 @@ const App = () => {
     // });
 
     inputNumbers = createBoxes(input);
-    randomNumbers = inputNumbers
-    outputNumbers = inputNumbers
+    //randomNumbers = inputNumbers
+    //outputNumbers = inputNumbers
     setInputGrid(inputNumbers);
     setRandomGrid(randomNumbers);
     setOutputGrid(outputNumbers);
@@ -94,8 +94,8 @@ const App = () => {
           <div className='box_container' id='input_box_container'>
             {inputGrid.map((nums, X) => (
               <div className = 'row' key={X}>
-                {nums.map(Y => (
-                  <div className={inputGrid[X][Y]===0?'cell':'cell toggled'} key={Math.random()}/>
+                {nums.map((nums, Y) => (
+                  <div className={inputGrid[X][Y]===0?'cell':'cell toggled'} key={X*100+Y}/>
                 ))}
               </div>
             ))}
@@ -103,8 +103,8 @@ const App = () => {
           <div className='box_container' id='randomized_box_container'>
             {randomGrid.map((nums, X) => (
               <div className = 'row' key={X}>
-                {nums.map(Y => (
-                  <div className={randomGrid[X][Y]===0?'cell':'cell toggled'} key={Math.random()}/>
+                {nums.map((nums, Y) => (
+                  <div className={randomGrid[X][Y]===0?'cell':'cell toggled'} key={X*100+Y}/>
                 ))}
               </div>
             ))}
@@ -112,8 +112,8 @@ const App = () => {
           <div className='box_container' id='input_box_container'>
             {outputGrid.map((nums, X) => (
               <div className = 'row' key={X}>
-                {nums.map(Y => (
-                  <div className={outputGrid[X][Y]===0?'cell':'cell toggled'} key={Math.random()}/>
+                {nums.map((nums, Y) => (
+                  <div className={outputGrid[X][Y]===0?'cell':'cell toggled'} key={X*100+Y}/>
                 ))}
               </div>
             ))}
