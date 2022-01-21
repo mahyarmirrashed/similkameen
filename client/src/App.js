@@ -16,6 +16,16 @@ const APICall = (endpoint, params) => {
   return {};
 };
 
+let numbers = new Array(10)
+
+  for(let i = 0; i < 10; i++){
+    numbers[i] = new Array(10)
+    console.log(numbers[1])
+    for(let k = 0; k < 10; k++){
+      numbers[i][k] = k
+    }
+  }
+
 const App = () => {
   const [input, setInput] = useState('');
   const [process, setProcess] = useState('');
@@ -60,7 +70,19 @@ const App = () => {
             culpa qui officia deserunt mollit anim id est laborum."
           </span>
         </div>
-        <div className="centerpanel"></div>
+        <div className="centerpanel">
+          <div className='box_container' id='input_box_container'>
+            {numbers.map((nums, X) => (
+              <div className = 'row' key={X}>
+                {nums.map(Y => (
+                  <div className='cell'/>
+                ))}
+              </div>
+            ))}
+          </div>
+          <div className='box_container' id='randomized_box_container'></div>
+          <div className='box_container' id='input_box_container'></div>
+        </div>
         <div className="side">
           <h3>Rules</h3>
           <span>
@@ -88,7 +110,7 @@ const App = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
             />
-            <label for="process_config">Process Configuration:</label>
+            <label htmlFor="process_config">Process Configuration:</label>
             <input
               id="process_config"
               value={process}
