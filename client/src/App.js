@@ -17,11 +17,12 @@ const APICall = (endpoint, params) => {
 
 const createBoxes = (str) => {
   let arr = [];
-  let len = str.length;
+  let vals = str.split(' ');
+  let len = vals.length;
   for (let i = 0; i < MAX_HEIGHT; i++) {
     arr[i] = new Array(len);
     for (let k = 0; k < len; k++) {
-      if (i >= MAX_HEIGHT - parseInt(str[k])) {
+      if (i >= MAX_HEIGHT - parseInt(vals[k])) {
         arr[i][k] = 1;
       } else {
         arr[i][k] = 0;
