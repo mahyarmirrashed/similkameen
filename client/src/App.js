@@ -1,40 +1,30 @@
 import './App.css';
 import './style.css';
 import { useState } from 'react';
-const ax = require('axios').default;
-const MAX_HEIGHT = 4;
-const APICall = (endpoint, params) => {
-  ax.post(endpoint, params)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
 
-  return {};
-};
+const axios = require('axios').default;
+
+const MAXIMUM_HEIGHT = 4;
 
 const createBoxes = (str) => {
+  console.log(str);
   let arr = [];
   let vals = str.split(' ');
   let len = vals.length;
-  for (let i = 0; i < MAX_HEIGHT; i++) {
+
+  for (let i = 0; i < MAXIMUM_HEIGHT; i++) {
     arr[i] = new Array(len);
     for (let k = 0; k < len; k++) {
-      if (i >= MAX_HEIGHT - parseInt(vals[k])) {
+      if (i >= MAXIMUM_HEIGHT - parseInt(vals[k])) {
         arr[i][k] = 1;
       } else {
         arr[i][k] = 0;
       }
     }
   }
+
   return arr;
 };
-
-let inputNumbers = [];
-let randomNumbers = [];
-let outputNumbers = [];
 
 const App = () => {
   const [input, setInput] = useState('');
@@ -45,36 +35,44 @@ const App = () => {
 
   const onClick = (e) => {
     e.preventDefault();
-    console.log(input, process);
 
-    let random = '';
-    let output = '';
+    let execute = '';
+    let randomize = '';
+    let investigate = '';
 
-    // output = APICall('localhost:4000/execute', {
-    //   input: input,
-    //   process: process,
-    //   height: MAX_HEIGHT
-    // });
-    // random = APICall('localhost:4000/randomize', {
-    //   input: input,
-    //   height: MAX_HEIGHT
-    // });
-    // APICall('localhost:4000/investigate', {
-    //   input: random,
-    //   output: output,
-    //   height: MAX_HEIGHT
-    // });
-
-    inputNumbers = createBoxes(input);
-    //randomNumbers = inputNumbers
-    //outputNumbers = inputNumbers
-    setInputGrid(inputNumbers);
-    setRandomGrid(randomNumbers);
-    setOutputGrid(outputNumbers);
+    axios
+      .post('http://localhost:4000/execute', {
+        input,
+        process,
+        height: MAXIMUM_HEIGHT,
+      })
+      .then((res) => (execute = res.data.output))
+      .then(() =>
+        axios.post('http://localhost:4000/randomize', {
+          input,
+          height: MAXIMUM_HEIGHT,
+        }),
+      )
+      .then((res) => (randomize = res.data.output))
+      .then(() =>
+        axios.post('http://localhost:4000/investigate', {
+          input: randomize,
+          output: execute,
+          height: MAXIMUM_HEIGHT,
+        }),
+      )
+      .then((res) => (investigate = res.data.process))
+      .then(() => {
+        setInputGrid(createBoxes(input));
+        setRandomGrid(createBoxes(randomize));
+        setOutputGrid(createBoxes(execute));
+      })
+      .catch(console.error);
 
     setInput('');
     setProcess('');
   };
+
   return (
     <div className="App">
       <div className="header">
