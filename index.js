@@ -91,7 +91,7 @@ app.post('/investigate', (req, res) => {
 
           if (input[i] < output[i]) {
             // accept from right
-            while (output[pos] === 0 || input[pos] === output[pos]) {
+            while (input[pos] === 0 || input[pos] === output[pos]) {
               pos += 1;
             }
 
@@ -102,7 +102,7 @@ app.post('/investigate', (req, res) => {
           } else {
             // donate to right
             while (
-              output[pos] === req.body.height ||
+              input[pos] === req.body.height ||
               input[pos] === output[pos]
             ) {
               pos += 1;
