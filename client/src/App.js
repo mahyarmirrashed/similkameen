@@ -7,7 +7,6 @@ const axios = require('axios').default;
 const MAXIMUM_HEIGHT = 4;
 
 const createBoxes = (str) => {
-  console.log(str);
   let arr = [];
   let vals = str.split(' ');
   let len = vals.length;
@@ -38,7 +37,6 @@ const App = () => {
 
     let execute = '';
     let randomize = '';
-    let investigate = '';
 
     axios
       .post('http://localhost:4000/execute', {
@@ -61,7 +59,7 @@ const App = () => {
           height: MAXIMUM_HEIGHT,
         }),
       )
-      .then((res) => (investigate = res.data.process))
+      .then((res) => console.log(res.data.process))
       .then(() => {
         setInputGrid(createBoxes(input));
         setRandomGrid(createBoxes(randomize));
