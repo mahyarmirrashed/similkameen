@@ -23,7 +23,11 @@ The following section outlines the specific considerations taken into account du
 
 ### Front-end Design Decisions
 
-Lorem ipsum dolor sit amet.
+React was chosen to build the front end becuase of the teams familiarity with the technology, and the fact that React allows for the creation of dynamic user interfaces with relative ease.
+
+The React Interface accepts the input configuration and process configuration in two textboxes after pressing the go button. The interface then makes three separate api calls (`execute`, `randomize`, and `investigate` to the backend that send the relevant information to 1A, then 1C, and finally 1B respectively. the interface then renders the box configurations of the input, the random scrambling and the final solution.
+
+The rendering was handled primarily by Ayden, while the text input and api calling was handled primarily by Owen.
 
 ### Back-end Design Decisions
 
