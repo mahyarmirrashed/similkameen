@@ -54,6 +54,8 @@ app.post('/execute', (req, res) => {
   } else {
     res.send({ output: undefined });
   }
+
+  console.log('POST request to /execute completed.');
 });
 
 app.post('/investigate', (req, res) => {
@@ -125,6 +127,8 @@ app.post('/investigate', (req, res) => {
   } else {
     res.send({ process: undefined });
   }
+
+  console.log('POST request to /investigate completed.');
 });
 
 app.post('/randomize', (req, res) => {
@@ -153,6 +157,8 @@ app.post('/randomize', (req, res) => {
   } else {
     res.send({ output: undefined });
   }
+
+  console.log('POST request to /randomize completed.');
 });
 
 app.listen(port, () => {
