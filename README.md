@@ -8,4 +8,4 @@ When the client is running, a starting configuration can be entered into theinpu
 
 ## Running
 
-To run, clone this repository, run `yarn` to install the packages, and then run `yarn start`.
+To run, clone this repository, run `yarn` to install the packages (needs to happen at both root level and inside `client` folder), and then run `yarn start`.
