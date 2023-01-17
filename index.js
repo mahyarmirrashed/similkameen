@@ -120,6 +120,10 @@ app.post('/investigate', (req, res) => {
         process += '2';
       }
 
+      while (process.match(/(12|21)/g)) {
+        process = process.replace(/(12|21)/g, '');
+      }
+
       res.send({ process: process.replace(/[123]+$/, '') + '0' });
     } else {
       res.send({ process: undefined });
